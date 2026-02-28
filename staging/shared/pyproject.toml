@@ -1,0 +1,15 @@
+[project]
+name = "idleonlib"
+version = "0.1.0"
+description = "Reusable Idleon mechanics library (math + worlds subsystems)."
+requires-python = ">=3.14.2"
+dependencies = []
+
+[tool.black]
+line-length = 100
+target-version = ["py314"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+known_first_party = ["idleonlib"]

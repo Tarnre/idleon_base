@@ -1,0 +1,137 @@
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #111;
+  color: #eee;
+}
+
+
+/* Minehead status bar */
+
+.mh-statusbar {
+  margin-top: 18px;
+  background: #151515;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+.mh-statusbar-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.mh-statusbar-subrow {
+  margin-top: 10px;
+  opacity: 0.9;
+  justify-content: space-between;
+}
+
+.mh-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(180deg, #1c1c1c, #141414);
+  border: 1px solid #2b2b2b;
+  border-radius: 12px;
+  padding: 10px 12px;
+  min-width: 160px;
+}
+
+.mh-pill-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: #101010;
+  border: 1px solid #2a2a2a;
+  font-size: 16px;
+}
+
+.mh-pill-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.mh-pill-value {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.mh-pill-label {
+  font-size: 12px;
+  opacity: 0.75;
+  margin-top: 2px;
+}
+
+.mh-subinfo {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.mh-subinfo-k {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.mh-subinfo-v {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.mh-card {
+  margin-top: 18px;
+  background: #151515;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.mh-card-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.mh-select {
+  background: #101010;
+  color: #eee;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 8px 10px;
+  min-width: 280px;
+}
+
+.mh-grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.mh-row {
+  background: #111;
+  border: 1px solid #242424;
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.mh-row-k {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.mh-row-v {
+  margin-top: 4px;
+  font-size: 15px;
+  font-weight: 700;
+}

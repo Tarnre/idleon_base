@@ -1,0 +1,7 @@
+{
+  "snail_level": 31,
+  "idleon_config": "../../config.json",
+  "schematic_index": 53,
+  "non_strict": false,
+  "trials": 1000000
+}
