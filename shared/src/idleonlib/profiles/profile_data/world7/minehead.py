@@ -34,7 +34,8 @@ class MineheadCore:
         unk_01..unk_03: Unknown slots.
         bonus_unlock_level: Best-effort from slot 4.
         currency: Best-effort from slot 5.
-        unk_06..unk_19: Unknown slots.
+        max_damage_record: Best-effort from slot 6.
+        unk_07..unk_19: Unknown slots.
         raw: The original list (length 20) for debugging/round-trip.
     """
 
@@ -44,7 +45,7 @@ class MineheadCore:
     unk_03: float
     bonus_unlock_level: int
     currency: float
-    unk_06: float
+    max_damage_record: float
     unk_07: float
     unk_08: float
     unk_09: float
@@ -84,7 +85,7 @@ class MineheadCore:
             unk_03=_as_float(v[3]),
             bonus_unlock_level=_as_int(v[4]),
             currency=_as_float(v[5]),
-            unk_06=_as_float(v[6]),
+            max_damage_record=_as_float(v[6]),
             unk_07=_as_float(v[7]),
             unk_08=_as_float(v[8]),
             unk_09=_as_float(v[9]),
@@ -237,8 +238,11 @@ class MineheadUpgrades:
     def upgrade_qty(self, index: int) -> float:
         """Return UpgradeQTY for formulas.
 
-        For now this returns the raw level as a quantity. Later we can
-        multiply by MineheadUPG multipliers without changing callers.
+        In the decompile, UpgradeQTY is:
+
+            MineheadUPG[index][3] * Research[8][index]
+
+        where the MineheadUPG row is the upgrade definition.
 
         Args:
             index: Upgrade index.
@@ -246,7 +250,12 @@ class MineheadUpgrades:
         Returns:
             Quantity as float.
         """
-        return float(self.level(index))
+        from idleonlib.worlds.world7.minehead.data import MINEHEAD_UPGRADES
+
+        level = self.level(index)
+        if index < 0 or index >= len(MINEHEAD_UPGRADES):
+            return float(level)
+        return float(MINEHEAD_UPGRADES[index].qty_multiplier) * float(level)
 
     def upgrade_name(self, index: int) -> str:
         """Return the semantic name for an upgrade index, if known."""
